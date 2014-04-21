@@ -30,7 +30,6 @@ namespace Radio
         // Set up pins
         pinMode(_csnPin, OUTPUT);
         pinMode(_cePin, OUTPUT);
-        pinMode(_irqPin, INPUT);
 
         // Disable nRF24L01+
         digitalWrite(_cePin, 0);
@@ -43,6 +42,7 @@ namespace Radio
         SPI.setClockDivider(SPI_CLOCK_DIV8);
         
         // Set up IRQ
+        pinMode(_irqPin, INPUT);
         attachInterrupt(irqPin, receive, FALLING);
     }
 
